@@ -49,16 +49,16 @@
         <td colspan="1" style="width: 10%">
           <strong> FECHA: </strong>
         </td>
-        <% const dateOfAdmission = new Date() %>
+        <% const dateOfFinalization= admissionDate %>
 
         <td colspan="9">
-          <%= dateOfAdmission?.toLocaleDateString('es-ES', { year: 'numeric',
-          month: 'numeric', day: 'numeric', hour:'2-digit', minute:'2-digit',
-          hour12:false })%>
+          <%= (new Date(dateOfFinalization))?.toLocaleDateString('es-ES', {
+          year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit',
+          minute: '2-digit', second: '2-digit', hour12: true })%>
         </td>
         <td colspan="2" rowspan="6">
           <img
-            src=""
+            src="<%=patientPhoto %>"
             alt=""
             style="width: 140px; height: 100px; float: right"
           />
@@ -68,40 +68,45 @@
         <td colspan="1">
           <strong> ENFASIS: </strong>
         </td>
-        <td colspan="9"></td>
+        <td colspan="9"><%= examType%></td>
       </tr>
 
       <tr>
         <td colspan="1">
           <strong> NOMBRE: </strong>
         </td>
-        <td colspan="9"></td>
+        <td colspan="9"><%= patientName %></td>
       </tr>
       <tr>
         <td colspan="1">
           <strong> C.C.: </strong>
         </td>
-        <td colspan="2"></td>
+        <td colspan="2"><%= patientDocument %></td>
         <td colspan="1">
           <strong> EDAD: </strong>
         </td>
-        <td colspan="7" style="text-align: left"></td>
+        <td colspan="7" style="text-align: left">
+          <span> <%= age?.full %> </span>
+        </td>
       </tr>
       <tr>
         <td colspan="1">
           <strong> E. CIVIL: </strong>
         </td>
-        <td colspan="2" style="text-align: left"></td>
+        <td colspan="2" style="text-align: left">
+          <%= civilStatus?.toUpperCase() %>
+        </td>
         <td colspan="1">
           <strong> DOMINANCIA: </strong>
         </td>
-        <td colspan="2" style="text-align: left"></td>
+        <td colspan="2" style="text-align: left"><%= dominance %></td>
         <td colspan="1">
           <strong> EPS: </strong>
         </td>
-        <td colspan="3"></td>
+        <td colspan="3"><%= entityName %></td>
       </tr>
     </table>
+
     <p style="font-size: 11px">
       Declaro que asisto de manera voluntaria a la Institución Prestadora de
       Servicios de Salud JAVAP Salud Ocupacional para la realización de un
@@ -241,7 +246,22 @@
       "
     >
       <div style="display: flex; flex-direction: column; align-items: center">
-        <img src="" style="width: 140px; height: 100px" />
+        <img src="<%=doctorSignature%>" style="width: 140px; height: 100px" />
+        <div
+          style="
+            width: 200px;
+            padding: 2px;
+            font-size: 9px;
+            font-weight: 700;
+            text-align: center;
+            border-top: 2px solid black;
+          "
+        >
+          FIRMA MEDICO S.O. RM Y LICENCIA
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <img src="<%=signature%>" style="width: 140px; height: 100px" />
         <div
           style="
             width: 200px;
@@ -256,7 +276,11 @@
         </div>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center">
-        <img src="" alt="" style="width: 140px; height: 100px" />
+        <img
+          src="<%=fingerprint%>"
+          alt=""
+          style="width: 140px; height: 100px"
+        />
         <div
           style="
             width: 200px;

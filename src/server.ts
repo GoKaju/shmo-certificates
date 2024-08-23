@@ -2,7 +2,7 @@ import express, { query } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
-import { GenerateInformedConsentByOrder } from "controllers/generate-informed-consent-by-order";
+import { GenerateInformedConsentByOrder } from "./controllers/generate-informed-consent-by-order";
 // import { GenerateCertificateController } from "./controllers/generate-certificate";
 // import { GetFileController } from "./controllers/get-file";
 // import { GenerateMedicalHistoryController } from "./controllers/generate-medical-history";
@@ -27,7 +27,7 @@ app.get("/api/health", (_, res) => {
   res.end();
 });
 
-app.get("/api/informed-consent/:code/:orderId/", async (req, res) => {
+app.get("/api/informed-consent/:code/:orderId", async (req, res) => {
   console.log(
     "Received request to generate pdf of informed consent for order",
     req.params.orderId
@@ -38,9 +38,9 @@ app.get("/api/informed-consent/:code/:orderId/", async (req, res) => {
     templateCode: req.params.code,
   });
 
-  // res.setHeader("Content-Disposition", `inline; filename=${document.name}`);
-  // res.setHeader("Content-Type", document.mimeType);
-  // res.send(document.data);
+  res.setHeader("Content-Disposition", `inline; filename=${document.name}`);
+  res.setHeader("Content-Type", document.mimeType);
+  res.send(document.data);
 
   res.end();
 });
