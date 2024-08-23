@@ -1,0 +1,32 @@
+{
+  "name": "shmo-certificates",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "https://github.com/GoKaju/shmo-certificates.git",
+  "author": "Deiby Gomez <gokaju23@gmail.com>",
+  "license": "None",
+  "private": true,
+  "scripts": {
+    "serve": "nodemon src/server.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.5.0",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.6.3",
+    "chalk": "^5.3.0",
+    "chromiumly": "2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "tslib": "^2.6.2"
+  }
+}

@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: sans-serif;
+        font-size: 8px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: stretch;
+        align-items: flex-end;
+      }
+    </style>
+  </head>
+  <body class="flex-container">
+    <div
+      style="
+        width: 100%;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+      "
+    >
+      <div
+        style="
+          color: rgb(0, 49, 139);
+          text-align: center;
+          font-weight: 700;
+          line-height: 10px;
+        "
+      >
+        MADRID: Calle 9 # 6e-04 Teléfono: 601 8253884 - 310 2128372 <br />
+        FACATATIVA: Centro comercial Centro Faca Cra 3A No. 6-58 Teléfono: 601
+        8900665 - 310 2133828 <br />
+        "EL ARTE DE TRABAJAR SIN ENFERMAR"
+      </div>
+      <div
+        style="
+          width: 100%;
+          height: 8px;
+          background-color: #dedddd;
+          display: flex;
+          justify-content: space-between;
+          font-size: 6px;
+          padding-left: 30px;
+          padding-right: 30px;
+        "
+      >
+        <span
+          ><%= (new Date())?.toLocaleDateString('es-ES', { year: 'numeric',
+          month: 'numeric', day: 'numeric', hour:'2-digit', second:'2-digit',
+          minute:'2-digit', hour12:false }) %>
+        </span>
+        <span>
+          Pag. <span class="pageNumber"></span> de
+          <span class="totalPages"></span>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
