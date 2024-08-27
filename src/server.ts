@@ -3,10 +3,6 @@ import morgan from "morgan";
 import cors from "cors";
 import dotenv from "dotenv";
 import { GenerateInformedConsentByOrder } from "./controllers/generate-informed-consent-by-order";
-// import { GenerateCertificateController } from "./controllers/generate-certificate";
-// import { GetFileController } from "./controllers/get-file";
-// import { GenerateMedicalHistoryController } from "./controllers/generate-medical-history";
-
 dotenv.config();
 
 const app = express();
