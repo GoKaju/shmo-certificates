@@ -2,6 +2,8 @@ import mysql from "mysql2/promise";
 import constants from "../config";
 import { getPatientDataByOrderQuery } from "./queries/get-patient-data";
 
+const WHITE_PNG =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC";
 export class MysqlService {
   async getPatientDataByOrder(orderId: string): Promise<PatientData> {
     const URI = constants().MYSQL_URI;
@@ -33,10 +35,10 @@ export class MysqlService {
         days: row.days,
         full: `${row.years} años, ${row.months} meses y ${row.days} días`,
       },
-      doctorSignature: row.firma_medico,
-      patientPhoto: row.photo_paciente,
-      fingerprint: row.anot_huella,
-      signature: row.anot_firma,
+      doctorSignature: row.firma_medico || WHITE_PNG,
+      patientPhoto: row.photo_paciente || WHITE_PNG,
+      fingerprint: row.anot_huella || WHITE_PNG,
+      signature: row.anot_firma || WHITE_PNG,
     };
   }
 }
