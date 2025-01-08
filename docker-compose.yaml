@@ -2,8 +2,6 @@ services:
   pdf-engine:
     image: gotenberg/gotenberg:8
     restart: unless-stopped
-    ports:
-      - 30000:3000
 
   certificates:
     build: .
@@ -11,7 +9,7 @@ services:
     depends_on:
       - pdf-engine
     ports:
-      - 3002:3002
+      - 3099:3002
     environment:
       GOTENBERG_ENDPOINT: http://pdf-engine:3000
       MYSQL_URI: ${MYSQL_URI}
