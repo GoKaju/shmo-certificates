@@ -8,8 +8,6 @@ services:
     restart: unless-stopped
     depends_on:
       - pdf-engine
-    ports:
-      - 3099:3002
     environment:
       GOTENBERG_ENDPOINT: http://pdf-engine:3000
       MYSQL_URI: ${MYSQL_URI}
